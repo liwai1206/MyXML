@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 引入外部配置文件，用来配置连接数据库的信息 -->
+	<properties resource="jdbcConfig.properties"></properties>
+	
+	<!-- 给指定的类起别名 -->
+	<typeAliases>
+		<!-- 给这个包下的所有类起别名，且别名就是类名 -->
+		<package name="com.yc.mavenstudent02.domain"/>
+		
+		<!-- 给指定的类起别名 -->
+		<!-- <typeAlias alias="Account" type="com.yc.mavenstudy.domain.Account"/> -->
+	</typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <!-- 指定注解所在的包 -->
+  <mappers>  
+  	<package name="com.yc.mavenstudent02.dao"/>
+ <!--   <mapper resource="mappers/MyMapper.xml"/>
+    <mapper resource="mappers/MyMapper2.xml"/> -->
+  </mappers>
+  
+  
+  
+  
+</configuration>
